@@ -6,7 +6,7 @@ public class Student {
     private String course;
     private int yearLevel;
     private int numOfSubjects;
-    private String[] listOfSubjects = new String[10];
+    private final String[] listOfSubjects = new String[10];
 
     public Student() {
         this.idNumber = "";
@@ -15,40 +15,19 @@ public class Student {
         this.numOfSubjects = 0;
     }
 
-    public Student(String idNumber, String name, int yearLevel, int numOfSubjects, String[] subjects) {
+    public Student(String idNumber, String name, int yearLevel, int numOfSubjects) {
         this.idNumber = idNumber;
         this.name = name;
         this.yearLevel = yearLevel;
         this.numOfSubjects = numOfSubjects;
-        this.listOfSubjects = subjects;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getIdNumber() {
-        return idNumber;
     }
 
     public void setIdNumber(String idNumber) {
         this.idNumber = idNumber;
     }
 
-    public String getCourse() {
-        return course;
-    }
-
     public void setCourse(String course) {
         this.course = course;
-    }
-
-    public int getYearLevel() {
-        return yearLevel;
     }
 
     public void setYear(int yearLevel) {
@@ -61,14 +40,6 @@ public class Student {
 
     public void setNumOfSubjects(int numOfSubjects) {
         this.numOfSubjects = numOfSubjects;
-    }
-
-    public String[] getListOfSubjects() {
-        return listOfSubjects;
-    }
-
-    public void setListOfSubjects(String[] listOfSubjects) {
-        this.listOfSubjects = listOfSubjects;
     }
 
     public void changeCourse(String course) {
@@ -100,13 +71,13 @@ public class Student {
     }
 
     public String toString() {
-        String subjects = "";
+        StringBuilder subjects = new StringBuilder();
         for (String subject : this.listOfSubjects) {
             if (subject != null) {
                 if (!subjects.isEmpty()) {
-                    subjects += ", ";
+                    subjects.append(", ");
                 }
-                subjects += subject;
+                subjects.append(subject);
             }
         }
 
